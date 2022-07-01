@@ -4,7 +4,7 @@ import MainBody from "./pages/MainBody";
 
 function App() {
   return (
-    <div className="App flex flex-col justify-center items-center  w-full h-screen bg-gray-200">
+    <div className="App">
       <CreateContext>
         <MainBody />
       </CreateContext>
