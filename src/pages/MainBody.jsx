@@ -18,7 +18,7 @@ const MainBody = () => {
 
       <div className="all__element h-screen w-full z-[10]  absolute top-0 right-0 bottom-0 left-0 ">
         <h1 className="w-full h-20 flex flex-col justify-center items-center font-Oswald text-2xl">
-          Weather project by Hari
+          ⛅Weather project by Hari
         </h1>
         {/* Search  */}
         <Search />
