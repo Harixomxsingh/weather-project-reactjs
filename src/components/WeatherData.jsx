@@ -1,13 +1,32 @@
 import React, { useContext } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import createContextFunction from "../context/createContextFunction";
 
 const WeatherData = () => {
   const { Data } = useContext(createContextFunction);
   const url = `https://openweathermap.org/img/wn/${Data.weather[0].icon}@2x.png`;
+  const [time, setTime] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
+  const date = new Date();
+  useEffect(() => {
+    const intervel = setInterval(() => {
+      setTime(date.toLocaleTimeString());
+    }, 1000);
+    return () => {
+      clearInterval(intervel);
+    };
+  }, [time]);
+  useEffect(() => {
+    setCurrentDate(date.toLocaleDateString());
+  }, []);
+
   return (
     <div className="text-white">
-      <div className="w-full flex justify-center items-center text-white md:text-2xl md:font-Oswald font-mono">
+      <div className="w-full flex flex-col justify-center items-center text-white md:text-2xl md:font-Oswald font-mono">
         <p> Weather in {Data.name}</p>
+        <p>Date: {currentDate}</p>
+        <p>Time: {time}</p>
       </div>
       <div className="grid grid-cols-2 justify-center items-center">
         <div>
